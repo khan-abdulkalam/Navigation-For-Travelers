@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation For Travelers</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header>
+        <h1>🧭 Navigation For Travelers</h1>
+        <p>Select Start, Destination and Obstacles to find the shortest path.</p>
+    </header>
+
+    <!-- Information Panel -->
+    <section class="info-panel">
+
+        <div class="card">
+            <h3>Start</h3>
+            <p id="startText">Not Selected</p>
+        </div>
+
+        <div class="card">
+            <h3>Destination</h3>
+            <p id="endText">Not Selected</p>
+        </div>
+
+        <div class="card">
+            <h3>Distance</h3>
+            <p id="distanceText">0 Cells</p>
+        </div>
+
+        <div class="card">
+            <h3>Estimated Time</h3>
+            <p id="timeText">0 sec</p>
+        </div>
+
+    </section>
+
+    <!-- Controls -->
+    <div class="controls">
+
+        <button id="startMode">🟢 Start</button>
+
+        <button id="endMode">🔴 Destination</button>
+
+        <button id="obstacleMode">⬛ Obstacle</button>
+
+        <button id="eraseMode">🧽 Eraser</button>
+
+        <button id="findPath">🟨 Find Path</button>
+
+        <button id="reset">🔄 Reset</button>
+
+    </div>
+
+    <!-- Grid with Labels -->
+    <div class="grid-container">
+
+        <div id="topLabels" class="top-labels"></div>
+
+        <div class="grid-middle">
+
+            <div id="leftLabels" class="side-labels"></div>
+
+            <div id="grid" class="grid"></div>
+
+            <div id="rightLabels" class="side-labels"></div>
+
+        </div>
+
+        <div id="bottomLabels" class="bottom-labels"></div>
+
+    </div>
+
+    <script src="js/grid.js"></script>
+    <script src="js/pathfinder.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
