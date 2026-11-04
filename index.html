@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#080d19">
+    <meta name="description" content="Navigation For Travelers - An interactive pathfinding and route optimization visualizer.">
+
+    <title>Navigation For Travelers | Ultimate Pathfinding Studio</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="background-effects">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+        <div class="ambient ambient-three"></div>
+        <div class="background-grid"></div>
+    </div>
+
+    <!-- Application -->
+    <div class="app-wrapper">
+
+        <!-- ================= HEADER ================= -->
+
+        <header class="main-header">
+
+            <div class="brand-area">
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="brand-icon-glow"></span>
+                </div>
+
+                <div class="brand-details">
+                    <h1>PATH<span>FINDER</span></h1>
+                    <p>TRAVEL NAVIGATION STUDIO</p>
+                </div>
+
+            </div>
+
+            <div class="header-center">
+                <div class="system-status">
+                    <span class="status-indicator"></span>
+                    <span>ALL SYSTEMS OPERATIONAL</span>
+                </div>
+            </div>
+
+            <div class="header-actions">
+
+                <button class="header-icon-btn" id="helpButton" title="Help & Instructions">
+                    <i class="fa-regular fa-circle-question"></i>
+                </button>
+
+                <button class="header-icon-btn" id="soundToggle" title="Sound Effects">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <div class="version-badge">
+                    <span>VERSION</span>
+                    <strong>2.0</strong>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================= MAIN TITLE ================= -->
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    <span class="eyebrow-line"></span>
+                    INTELLIGENT ROUTE DISCOVERY
+                    <span class="eyebrow-line"></span>
+                </div>
+
+                <h2>
+                    Find Your
+                    <span class="gradient-text">Perfect Path.</span>
+                </h2>
+
+                <p>
+                    Explore the world of algorithms. Design obstacles,
+                    discover optimal routes and visualize every move.
+                </p>
+
+            </div>
+
+            <div class="hero-decoration">
+                <div class="decoration-ring ring-one"></div>
+                <div class="decoration-ring ring-two"></div>
+                <div class="decoration-center">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ================= MAIN STATISTICS ================= -->
+
+        <section class="stats-section">
+
+            <article class="stat-card">
+
+                <div class="stat-icon start-stat-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div class="stat-content">
+                    <span class="stat-label">START LOCATION</span>
+                    <h3 id="startText">Not Selected</h3>
+                    <span class="stat-subtitle">Origin coordinates</span>
+                </div>
+
+                <div class="stat-card-decoration"></div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon end-stat-icon">
+                    <i class="fa-solid fa-flag-checkered"></i>
+                </div>
+
+                <div class="stat-content">
+                    <span class="stat-label">DESTINATION</span>
+                    <h3 id="endText">Not Selected</h3>
+                    <span class="stat-subtitle">Target coordinates</span>
+                </div>
+
+                <div class="stat-card-decoration"></div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon distance-stat-icon">
+                    <i class="fa-solid fa-route"></i>
+                </div>
+
+                <div class="stat-content">
+                    <span class="stat-label">PATH DISTANCE</span>
+                    <h3 id="distanceText">0 <small>Cells</small></h3>
+                    <span class="stat-subtitle">Shortest route length</span>
+                </div>
+
+                <div class="stat-card-decoration"></div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon time-stat-icon">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+
+                <div class="stat-content">
+                    <span class="stat-label">EXECUTION TIME</span>
+                    <h3 id="timeText">0 <small>ms</small></h3>
+                    <span class="stat-subtitle">Algorithm processing time</span>
+                </div>
+
+                <div class="stat-card-decoration"></div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ================= WORKSPACE ================= -->
+
+        <main class="workspace">
+
+            <!-- ========== LEFT CONTROL PANEL ========== -->
+
+            <aside class="control-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="section-kicker">CONFIGURATION</span>
+                        <h3>Control Center</h3>
+                    </div>
+
+                    <div class="panel-heading-icon">
+                        <i class="fa-solid fa-sliders"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- Drawing Tools -->
+
+                <section class="control-group">
+
+                    <div class="group-title">
+                        <span>01</span>
+                        <h4>PLACEMENT TOOLS</h4>
+                    </div>
+
+                    <div class="tool-grid">
+
+                        <button class="tool-btn active" id="startMode" data-mode="start">
+                            <span class="tool-icon start-tool">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <span class="tool-name">Start Point</span>
+                            <span class="tool-shortcut">S</span>
+                        </button>
+
+
+                        <button class="tool-btn" id="endMode" data-mode="end">
+                            <span class="tool-icon end-tool">
+                                <i class="fa-solid fa-flag-checkered"></i>
+                            </span>
+                            <span class="tool-name">Destination</span>
+                            <span class="tool-shortcut">E</span>
+                        </button>
+
+
+                        <button class="tool-btn" id="obstacleMode" data-mode="obstacle">
+                            <span class="tool-icon obstacle-tool">
+                                <i class="fa-solid fa-cube"></i>
+                            </span>
+                            <span class="tool-name">Obstacle</span>
+                            <span class="tool-shortcut">O</span>
+                        </button>
+
+
+                        <button class="tool-btn" id="eraseMode" data-mode="erase">
+                            <span class="tool-icon erase-tool">
+                                <i class="fa-solid fa-eraser"></i>
+                            </span>
+                            <span class="tool-name">Eraser</span>
+                            <span class="tool-shortcut">X</span>
+                        </button>
+
+                    </div>
+
+                    <p class="tool-hint">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Select a tool and click or drag across the grid.
+                    </p>
+
+                </section>
+
+
+                <div class="panel-divider"></div>
+
+
+                <!-- Algorithm Selection -->
+
+                <section class="control-group">
+
+                    <div class="group-title">
+                        <span>02</span>
+                        <h4>PATHFINDING ALGORITHM</h4>
+                    </div>
+
+                    <div class="select-wrapper">
+
+                        <i class="fa-solid fa-brain select-icon"></i>
+
+                        <select id="algorithmSelect">
+                            <option value="astar">A* Search</option>
+                            <option value="dijkstra">Dijkstra's Algorithm</option>
+                            <option value="bfs">Breadth First Search</option>
+                            <option value="dfs">Depth First Search</option>
+                        </select>
+
+                        <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                    </div>
+
+                    <div class="algorithm-description" id="algorithmDescription">
+                        <span class="algorithm-dot"></span>
+                        <p>A* intelligently finds an optimal path using heuristics.</p>
+                    </div>
+
+                </section>
+
+
+                <div class="panel-divider"></div>
+
+
+                <!-- Animation Speed -->
+
+                <section class="control-group">
+
+                    <div class="group-title">
+                        <span>03</span>
+                        <h4>ANIMATION SPEED</h4>
+                    </div>
+
+                    <div class="speed-heading">
+                        <span>Visualization Speed</span>
+                        <strong id="speedValue">Normal</strong>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="speedControl"
+                        class="custom-range"
+                        min="1"
+                        max="5"
+                        value="3"
+                        step="1"
+                    >
+
+                    <div class="range-labels">
+                        <span>Slow</span>
+                        <span>Normal</span>
+                        <span>Fast</span>
+                    </div>
+
+                </section>
+
+
+                <div class="panel-divider"></div>
+
+
+                <!-- Grid Settings -->
+
+                <section class="control-group">
+
+                    <div class="group-title">
+                        <span>04</span>
+                        <h4>GRID SETTINGS</h4>
+                    </div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <i class="fa-solid fa-grip"></i>
+                            <span>Grid Size</span>
+                        </div>
+
+                        <select id="gridSizeSelect" class="small-select">
+                            <option value="15">15 × 15</option>
+                            <option value="20" selected>20 × 20</option>
+                            <option value="25">25 × 25</option>
+                            <option value="30">30 × 30</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <i class="fa-solid fa-border-all"></i>
+                            <span>Show Coordinates</span>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="coordinateToggle" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>Diagonal Movement</span>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" id="diagonalToggle">
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div>
+
+                </section>
+
+
+                <div class="panel-divider"></div>
+
+
+                <!-- Maze Generation -->
+
+                <section class="control-group">
+
+                    <div class="group-title">
+                        <span>05</span>
+                        <h4>ENVIRONMENT</h4>
+                    </div>
+
+                    <div class="select-wrapper">
+                        <i class="fa-solid fa-mountain-sun select-icon"></i>
+
+                        <select id="mazeSelect">
+                            <option value="random">Random Obstacles</option>
+                            <option value="recursive">Recursive Division</option>
+                            <option value="horizontal">Horizontal Maze</option>
+                            <option value="vertical">Vertical Maze</option>
+                        </select>
+
+                        <i class="fa-solid fa-chevron-down select-arrow"></i>
+                    </div>
+
+                    <button class="secondary-action-btn" id="generateMaze">
+                        <i class="fa-solid fa-shuffle"></i>
+                        Generate Environment
+                    </button>
+
+                </section>
+
+
+                <!-- Panel Footer -->
+
+                <div class="panel-footer">
+                    <span class="live-dot"></span>
+                    <span>READY FOR NAVIGATION</span>
+                </div>
+
+            </aside>
+
+
+            <!-- ========== RIGHT GRID AREA ========== -->
+
+            <section class="visualizer-panel">
+
+                <!-- Grid Header -->
+
+                <div class="visualizer-header">
+
+                    <div class="visualizer-title">
+
+                        <div class="visualizer-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+
+                        <div>
+                            <span class="section-kicker">LIVE VISUALIZATION</span>
+                            <h3>Navigation Map</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="grid-status" id="gridStatus">
+                        <span class="status-indicator"></span>
+                        <span>AWAITING INPUT</span>
+                    </div>
+
+                </div>
+
+
+                <!-- Grid Toolbar -->
+
+                <div class="grid-toolbar">
+
+                    <div class="grid-toolbar-left">
+
+                        <div class="grid-coordinate">
+                            <i class="fa-solid fa-crosshairs"></i>
+                            <span id="gridDimensions">20 × 20 GRID</span>
+                        </div>
+
+                        <span class="toolbar-divider"></span>
+
+                        <span class="grid-instruction" id="gridInstruction">
+                            Select your starting point
+                        </span>
+
+                    </div>
+
+                    <div class="grid-toolbar-right">
+
+                        <button class="mini-tool-btn" id="randomPoints" title="Randomize Start and Destination">
+                            <i class="fa-solid fa-dice"></i>
+                        </button>
+
+                        <button class="mini-tool-btn" id="clearPath" title="Clear Path">
+                            <i class="fa-solid fa-route"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Actual Grid -->
+
+                <div class="grid-stage" id="gridStage">
+
+                    <div class="grid-loading" id="gridLoading">
+                        <div class="loading-spinner"></div>
+                        <span>INITIALIZING NAVIGATION GRID...</span>
+                    </div>
+
+                    <div class="grid-container">
+
+                        <div class="top-labels" id="topLabels"></div>
+
+                        <div class="grid-middle">
+
+                            <div class="side-labels left-labels" id="leftLabels"></div>
+
+                            <div
+                                class="grid"
+                                id="grid"
+                                role="grid"
+                                aria-label="Interactive navigation grid"
+                            ></div>
+
+                            <div class="side-labels right-labels" id="rightLabels"></div>
+
+                        </div>
+
+                        <div class="bottom-labels" id="bottomLabels"></div>
+
+                    </div>
+
+                    <div class="grid-overlay-message" id="gridOverlayMessage">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Grid Ready</span>
+                    </div>
+
+                </div>
+
+
+                <!-- Grid Legend -->
+
+                <div class="legend-section">
+
+                    <div class="legend-title">
+                        <i class="fa-solid fa-palette"></i>
+                        <span>MAP LEGEND</span>
+                    </div>
+
+                    <div class="legend">
+
+                        <div class="legend-item">
+                            <span class="legend-box legend-start"></span>
+                            <span>Start</span>
+                        </div>
+
+                        <div class="legend-item">
+                            <span class="legend-box legend-end"></span>
+                            <span>Destination</span>
+                        </div>
+
+                        <div class="legend-item">
+                            <span class="legend-box legend-obstacle"></span>
+                            <span>Obstacle</span>
+                        </div>
+
+                        <div class="legend-item">
+                            <span class="legend-box legend-visited"></span>
+                            <span>Visited</span>
+                        </div>
+
+                        <div class="legend-item">
+                            <span class="legend-box legend-path"></span>
+                            <span>Shortest Path</span>
+                        </div>
+
+                        <div class="legend-item">
+                            <span class="legend-box legend-empty"></span>
+                            <span>Unvisited</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Main Action Controls -->
+
+                <div class="action-toolbar">
+
+                    <div class="action-main">
+
+                        <button class="primary-action-btn" id="findPath">
+                            <i class="fa-solid fa-play"></i>
+                            <span>Find Shortest Path</span>
+                            <i class="fa-solid fa-arrow-right action-arrow"></i>
+                        </button>
+
+                        <button class="pause-action-btn" id="pausePath" disabled>
+                            <i class="fa-solid fa-pause"></i>
+                            <span>Pause</span>
+                        </button>
+
+                        <button class="step-action-btn" id="stepPath" disabled>
+                            <i class="fa-solid fa-forward-step"></i>
+                            <span>Step</span>
+                        </button>
+
+                    </div>
+
+                    <div class="action-secondary">
+
+                        <button class="secondary-action-btn reset-btn" id="reset">
+                            <i class="fa-solid fa-rotate-left"></i>
+                            Reset Grid
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Progress Information -->
+
+                <div class="progress-section">
+
+                    <div class="progress-header">
+                        <span>
+                            <i class="fa-solid fa-chart-line"></i>
+                            SEARCH PROGRESS
+                        </span>
+
+                        <strong id="progressPercentage">0%</strong>
+                    </div>
+
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <div class="progress-footer">
+                        <span id="progressStatus">Waiting for algorithm execution</span>
+                        <span id="visitedCount">0 nodes visited</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ================= PERFORMANCE ANALYTICS ================= -->
+
+        <section class="analytics-section">
+
+            <div class="analytics-header">
+
+                <div>
+                    <span class="section-kicker">ALGORITHM PERFORMANCE</span>
+                    <h3>Navigation Analytics</h3>
+                </div>
+
+                <span class="analytics-live">
+                    <span class="live-dot"></span>
+                    LIVE DATA
+                </span>
+
+            </div>
+
+
+            <div class="analytics-grid">
+
+                <article class="analytics-card">
+                    <div class="analytics-icon cyan-icon">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+
+                    <div class="analytics-info">
+                        <span>NODES EXPLORED</span>
+                        <h3 id="nodesExplored">0</h3>
+                    </div>
+                </article>
+
+
+                <article class="analytics-card">
+                    <div class="analytics-icon purple-icon">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+
+                    <div class="analytics-info">
+                        <span>PATH NODES</span>
+                        <h3 id="pathNodes">0</h3>
+                    </div>
+                </article>
+
+
+                <article class="analytics-card">
+                    <div class="analytics-icon orange-icon">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+
+                    <div class="analytics-info">
+                        <span>OBSTACLES</span>
+                        <h3 id="obstacleCount">0</h3>
+                    </div>
+                </article>
+
+
+                <article class="analytics-card">
+                    <div class="analytics-icon green-icon">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+
+                    <div class="analytics-info">
+                        <span>EFFICIENCY</span>
+                        <h3 id="efficiencyValue">0%</h3>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ALGORITHM INFORMATION ================= -->
+
+        <section class="algorithm-info-section">
+
+            <div class="algorithm-info-heading">
+                <div>
+                    <span class="section-kicker">UNDER THE HOOD</span>
+                    <h3>Algorithm Intelligence</h3>
+                </div>
+
+                <i class="fa-solid fa-microchip"></i>
+            </div>
+
+            <div class="algorithm-info-content">
+
+                <div class="algorithm-info-main">
+
+                    <div class="algorithm-info-icon">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+
+                    <div>
+                        <span>SELECTED ALGORITHM</span>
+                        <h4 id="selectedAlgorithmName">A* Search</h4>
+                        <p id="selectedAlgorithmInfo">
+                            A* uses a heuristic to efficiently discover an optimal route.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="complexity-info">
+
+                    <div>
+                        <span>TIME COMPLEXITY</span>
+                        <strong id="timeComplexity">O(E)</strong>
+                    </div>
+
+                    <div>
+                        <span>SPACE COMPLEXITY</span>
+                        <strong id="spaceComplexity">O(V)</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= KEYBOARD SHORTCUTS ================= -->
+
+        <section class="shortcuts-section">
+
+            <div class="shortcuts-heading">
+                <i class="fa-regular fa-keyboard"></i>
+                <span>QUICK SHORTCUTS</span>
+            </div>
+
+            <div class="shortcuts-list">
+
+                <div class="shortcut">
+                    <kbd>S</kbd>
+                    <span>Start Point</span>
+                </div>
+
+                <div class="shortcut">
+                    <kbd>E</kbd>
+                    <span>Destination</span>
+                </div>
+
+                <div class="shortcut">
+                    <kbd>O</kbd>
+                    <span>Obstacle</span>
+                </div>
+
+                <div class="shortcut">
+                    <kbd>X</kbd>
+                    <span>Eraser</span>
+                </div>
+
+                <div class="shortcut">
+                    <kbd>Space</kbd>
+                    <span>Find Path</span>
+                </div>
+
+                <div class="shortcut">
+                    <kbd>R</kbd>
+                    <span>Reset</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="main-footer">
+
+            <div class="footer-brand">
+                <i class="fa-solid fa-compass"></i>
+                <span>PATHFINDER</span>
+            </div>
+
+            <p>
+                Designed to explore. Engineered to navigate.
+            </p>
+
+            <div class="footer-right">
+                <span>POWERED BY GRAPH ALGORITHMS</span>
+                <i class="fa-solid fa-code"></i>
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!-- ================= HELP MODAL ================= -->
+
+    <div class="modal-backdrop" id="helpModal">
+
+        <div class="help-modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="section-kicker">GETTING STARTED</span>
+                    <h3>How to Navigate</h3>
+                </div>
+
+                <button class="modal-close" id="closeHelp">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="help-content">
+
+                <div class="help-step">
+                    <span class="help-number">01</span>
+                    <div>
+                        <h4>Choose a Starting Point</h4>
+                        <p>Select Start Point and click on any empty grid cell.</p>
+                    </div>
+                </div>
+
+                <div class="help-step">
+                    <span class="help-number">02</span>
+                    <div>
+                        <h4>Set Your Destination</h4>
+                        <p>Select Destination and place your target on the grid.</p>
+                    </div>
+                </div>
+
+                <div class="help-step">
+                    <span class="help-number">03</span>
+                    <div>
+                        <h4>Build Your Environment</h4>
+                        <p>Add obstacles to create barriers and challenge the algorithm.</p>
+                    </div>
+                </div>
+
+                <div class="help-step">
+                    <span class="help-number">04</span>
+                    <div>
+                        <h4>Discover the Shortest Path</h4>
+                        <p>Choose an algorithm and press Find Shortest Path.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="modal-primary-btn" id="startExploring">
+                Got It, Let's Explore
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST NOTIFICATION ================= -->
+
+    <div class="toast-container" id="toastContainer">
+
+        <div class="toast" id="toast">
+
+            <div class="toast-icon" id="toastIcon">
+                <i class="fa-solid fa-circle-info"></i>
+            </div>
+
+            <div class="toast-content">
+                <strong id="toastTitle">Notification</strong>
+                <p id="toastMessage">System notification.</p>
+            </div>
+
+            <button class="toast-close" id="closeToast">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= JAVASCRIPT FILES ================= -->
+
+    <script src="js/grid.js"></script>
+    <script src="js/pathfinder.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,773 @@
+/* ============================================================
+   PATHFINDER
+   RESPONSIVE DESIGN SYSTEM
+============================================================ */
+
+
+/* ================= LARGE DESKTOP ================= */
+
+@media (min-width: 1500px) {
+
+    .app-wrapper {
+        padding-inline: 45px;
+    }
+
+    .workspace {
+        grid-template-columns: 340px minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .control-panel,
+    .visualizer-panel {
+        padding: 28px;
+    }
+
+    :root {
+        --cell-size: 27px;
+        --cell-gap: 3px;
+    }
+
+}
+
+
+/* ================= LAPTOP ================= */
+
+@media (max-width: 1200px) {
+
+    .app-wrapper {
+        padding: 22px;
+    }
+
+    .workspace {
+        grid-template-columns: 285px minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .control-panel,
+    .visualizer-panel {
+        padding: 19px;
+    }
+
+    .stat-card {
+        padding: 15px;
+        gap: 11px;
+    }
+
+    .stat-content h3 {
+        font-size: 16px;
+    }
+
+    .hero-decoration {
+        right: 3%;
+        opacity: 0.25;
+    }
+
+    .analytics-grid {
+        gap: 10px;
+    }
+
+    .analytics-card {
+        padding: 12px;
+    }
+
+    :root {
+        --cell-size: 23px;
+        --cell-gap: 2px;
+    }
+
+}
+
+
+/* ================= SMALL LAPTOP ================= */
+
+@media (max-width: 1050px) {
+
+    .workspace {
+        grid-template-columns: 260px minmax(0, 1fr);
+    }
+
+    .tool-btn {
+        min-height: 80px;
+    }
+
+    .grid-stage {
+        justify-content: flex-start;
+        overflow: auto;
+    }
+
+    .grid-container {
+        margin-inline: auto;
+    }
+
+    .legend-section {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .legend {
+        gap: 12px;
+    }
+
+    .action-toolbar {
+        align-items: flex-start;
+    }
+
+}
+
+
+/* ================= TABLET LANDSCAPE ================= */
+
+@media (max-width: 900px) {
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .control-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0 22px;
+    }
+
+    .panel-heading {
+        grid-column: 1 / -1;
+    }
+
+    .control-group {
+        min-width: 0;
+    }
+
+    .panel-divider {
+        display: none;
+    }
+
+    .panel-footer {
+        grid-column: 1 / -1;
+        margin-top: 5px;
+    }
+
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+
+    .analytics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .algorithm-info-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .complexity-info {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+}
+
+
+/* ================= TABLET PORTRAIT ================= */
+
+@media (max-width: 700px) {
+
+    .app-wrapper {
+        padding: 15px;
+    }
+
+    .main-header {
+        min-height: 68px;
+        padding: 12px 15px;
+    }
+
+    .brand-icon {
+        width: 41px;
+        height: 41px;
+        font-size: 20px;
+    }
+
+    .brand-details h1 {
+        font-size: 17px;
+    }
+
+    .brand-details p {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .header-center {
+        display: none;
+    }
+
+    .header-actions {
+        gap: 7px;
+    }
+
+    .version-badge {
+        display: none;
+    }
+
+    .hero-section {
+        min-height: 195px;
+        padding: 35px 12px;
+    }
+
+    .hero-section h2 {
+        font-size: 40px;
+    }
+
+    .hero-content > p {
+        font-size: 12px;
+    }
+
+    .stats-section {
+        gap: 10px;
+    }
+
+    .stat-card {
+        min-height: 95px;
+        padding: 12px;
+    }
+
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .stat-content h3 {
+        font-size: 14px;
+    }
+
+    .stat-label {
+        font-size: 8px;
+    }
+
+    .stat-subtitle {
+        font-size: 9px;
+    }
+
+    .control-panel {
+        padding: 18px;
+    }
+
+    .visualizer-panel {
+        padding: 16px;
+    }
+
+    .visualizer-title h3 {
+        font-size: 17px;
+    }
+
+    .grid-stage {
+        min-height: 310px;
+        padding: 15px 5px;
+        justify-content: flex-start;
+    }
+
+    :root {
+        --cell-size: 21px;
+        --cell-gap: 2px;
+    }
+
+    .label {
+        font-size: 8px;
+    }
+
+    .grid-toolbar-left {
+        flex-wrap: wrap;
+    }
+
+    .legend {
+        gap: 10px 14px;
+    }
+
+    .action-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .primary-action-btn {
+        grid-column: 1 / -1;
+        width: 100%;
+    }
+
+    .pause-action-btn,
+    .step-action-btn {
+        justify-content: center;
+    }
+
+    .action-secondary,
+    .action-secondary button {
+        width: 100%;
+    }
+
+    .shortcuts-section {
+        gap: 15px;
+    }
+
+    .shortcuts-list {
+        gap: 12px;
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 520px) {
+
+    .app-wrapper {
+        padding: 10px;
+    }
+
+    .main-header {
+        border-radius: 14px;
+        padding: 11px;
+    }
+
+    .brand-area {
+        gap: 9px;
+    }
+
+    .brand-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        font-size: 17px;
+    }
+
+    .brand-details h1 {
+        font-size: 14px;
+        letter-spacing: 1.2px;
+    }
+
+    .brand-details p {
+        font-size: 7px;
+        letter-spacing: 0.7px;
+    }
+
+    .header-icon-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .hero-section {
+        min-height: 175px;
+        padding: 30px 5px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 1.6px;
+        gap: 7px;
+    }
+
+    .eyebrow-line {
+        width: 17px;
+    }
+
+    .hero-section h2 {
+        font-size: clamp(30px, 8vw, 38px);
+        letter-spacing: -1px;
+    }
+
+    .hero-content > p {
+        font-size: 11px;
+        line-height: 1.7;
+        max-width: 340px;
+    }
+
+    .stats-section {
+        gap: 8px;
+    }
+
+    .stat-card {
+        min-height: 90px;
+        padding: 10px;
+        gap: 8px;
+        border-radius: 13px;
+    }
+
+    .stat-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        font-size: 13px;
+    }
+
+    .stat-content h3 {
+        font-size: 12px;
+        margin-top: 3px;
+    }
+
+    .stat-content h3 small {
+        font-size: 9px;
+    }
+
+    .stat-label {
+        font-size: 7px;
+        letter-spacing: 0.5px;
+    }
+
+    .stat-subtitle {
+        font-size: 8px;
+    }
+
+    .control-panel {
+        grid-template-columns: 1fr;
+        padding: 16px;
+        border-radius: 17px;
+    }
+
+    .panel-heading {
+        grid-column: auto;
+        margin-bottom: 20px;
+    }
+
+    .panel-heading h3 {
+        font-size: 18px;
+    }
+
+    .panel-footer {
+        grid-column: auto;
+    }
+
+    .control-group {
+        margin-bottom: 17px;
+    }
+
+    .visualizer-panel {
+        padding: 13px;
+        border-radius: 17px;
+    }
+
+    .visualizer-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .visualizer-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .visualizer-title h3 {
+        font-size: 16px;
+    }
+
+    .grid-status {
+        font-size: 8px;
+        padding: 6px 10px;
+    }
+
+    .grid-toolbar {
+        gap: 10px;
+    }
+
+    .grid-toolbar-left {
+        gap: 8px;
+    }
+
+    .grid-coordinate {
+        font-size: 9px;
+    }
+
+    .grid-instruction {
+        font-size: 9px;
+    }
+
+    .grid-stage {
+        min-height: 280px;
+        border-radius: 11px;
+        justify-content: flex-start;
+        padding: 15px 5px;
+    }
+
+    :root {
+        --cell-size: 17px;
+        --cell-gap: 2px;
+    }
+
+    .grid {
+        padding: 6px;
+        border-radius: 6px;
+    }
+
+    .side-labels {
+        margin: 0 3px;
+    }
+
+    .top-labels,
+    .bottom-labels {
+        margin: 4px 0;
+    }
+
+    .label {
+        font-size: 7px;
+    }
+
+    .legend-section {
+        padding: 12px;
+        gap: 11px;
+    }
+
+    .legend {
+        gap: 10px 13px;
+    }
+
+    .legend-item {
+        font-size: 8px;
+    }
+
+    .legend-box {
+        width: 9px;
+        height: 9px;
+    }
+
+    .analytics-section,
+    .algorithm-info-section {
+        padding: 16px;
+        border-radius: 17px;
+    }
+
+    .analytics-header h3,
+    .algorithm-info-heading h3 {
+        font-size: 17px;
+    }
+
+    .analytics-card {
+        min-height: 72px;
+        padding: 10px;
+        gap: 9px;
+    }
+
+    .analytics-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .analytics-info span {
+        font-size: 7px;
+    }
+
+    .analytics-info h3 {
+        font-size: 18px;
+    }
+
+    .algorithm-info-main {
+        align-items: flex-start;
+        gap: 11px;
+    }
+
+    .algorithm-info-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+
+    .algorithm-info-main p {
+        font-size: 10px;
+    }
+
+    .complexity-info {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .complexity-info strong {
+        font-size: 12px;
+    }
+
+    .complexity-info span {
+        font-size: 7px;
+    }
+
+    .shortcuts-section {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px 4px;
+    }
+
+    .shortcuts-list {
+        gap: 12px 15px;
+    }
+
+    .shortcut {
+        font-size: 9px;
+    }
+
+    .main-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 9px;
+    }
+
+    .main-footer > p {
+        font-size: 9px;
+    }
+
+    .footer-right {
+        font-size: 7px;
+    }
+
+    .help-modal {
+        padding: 20px;
+    }
+
+    .toast-container {
+        top: 12px;
+        right: 12px;
+    }
+
+}
+
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 360px) {
+
+    .app-wrapper {
+        padding: 7px;
+    }
+
+    .brand-details h1 {
+        font-size: 12px;
+    }
+
+    .header-actions {
+        gap: 5px;
+    }
+
+    .header-icon-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .stats-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .stat-card {
+        gap: 6px;
+        padding: 8px;
+    }
+
+    .stat-content h3 {
+        font-size: 11px;
+    }
+
+    .grid-stage {
+        justify-content: flex-start;
+    }
+
+    :root {
+        --cell-size: 15px;
+        --cell-gap: 2px;
+    }
+
+    .tool-btn {
+        min-height: 75px;
+    }
+
+    .tool-name {
+        font-size: 10px;
+    }
+
+    .analytics-card {
+        padding: 8px;
+    }
+
+    .analytics-info span {
+        font-size: 6px;
+    }
+
+}
+
+
+/* ================= LANDSCAPE MOBILE ================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .hero-section {
+        min-height: 130px;
+        padding: 20px;
+    }
+
+    .hero-section h2 {
+        font-size: 32px;
+    }
+
+    .grid-stage {
+        min-height: 250px;
+    }
+
+}
+
+
+/* ================= TOUCH DEVICES ================= */
+
+@media (hover: none) {
+
+    .tool-btn:hover,
+    .stat-card:hover,
+    .analytics-card:hover {
+        transform: none;
+    }
+
+    .cell:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .primary-action-btn:hover::before {
+        display: none;
+    }
+
+}
+
+
+/* ================= PRINT ================= */
+
+@media print {
+
+    .background-effects,
+    .header-actions,
+    .control-panel,
+    .action-toolbar,
+    .shortcuts-section,
+    .main-footer {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .workspace {
+        display: block;
+    }
+
+    .visualizer-panel,
+    .analytics-section {
+        background: white;
+        color: black;
+        border: 1px solid #ddd;
+        box-shadow: none;
+    }
+
+}
