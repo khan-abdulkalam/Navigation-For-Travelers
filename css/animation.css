@@ -1,0 +1,796 @@
+/* ============================================================
+   PATHFINDER
+   PREMIUM ANIMATION SYSTEM
+============================================================ */
+
+
+/* ================= KEYFRAMES ================= */
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes scaleIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes pulse {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.45;
+    }
+
+}
+
+@keyframes glowPulse {
+
+    0%, 100% {
+        box-shadow:
+            0 0 7px rgba(34, 211, 238, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px rgba(34, 211, 238, 0.8),
+            0 0 35px rgba(34, 211, 238, 0.25);
+    }
+
+}
+
+@keyframes float {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+}
+
+@keyframes rotateSlow {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes rotateReverse {
+
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+
+}
+
+@keyframes shimmer {
+
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+
+}
+
+@keyframes scanLine {
+
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translateY(500px);
+        opacity: 0;
+    }
+
+}
+
+@keyframes gridDiscover {
+
+    0% {
+        opacity: 0.25;
+        transform: scale(0.65);
+        filter: brightness(0.5);
+    }
+
+    65% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: brightness(1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+
+}
+
+@keyframes pathReveal {
+
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+        border-radius: 50%;
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        border-radius: 3px;
+    }
+
+}
+
+@keyframes visitedReveal {
+
+    0% {
+        opacity: 0.15;
+        transform: scale(0.55);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+@keyframes startPulse {
+
+    0%, 100% {
+        box-shadow:
+            0 0 8px rgba(34, 197, 94, 0.6);
+    }
+
+    50% {
+        box-shadow:
+            0 0 18px rgba(34, 197, 94, 1),
+            0 0 35px rgba(34, 197, 94, 0.4);
+    }
+
+}
+
+@keyframes endPulse {
+
+    0%, 100% {
+        box-shadow:
+            0 0 8px rgba(251, 75, 104, 0.6);
+    }
+
+    50% {
+        box-shadow:
+            0 0 18px rgba(251, 75, 104, 1),
+            0 0 35px rgba(251, 75, 104, 0.4);
+    }
+
+}
+
+@keyframes pathGlow {
+
+    0%, 100% {
+        box-shadow:
+            0 0 5px rgba(250, 204, 21, 0.35);
+    }
+
+    50% {
+        box-shadow:
+            0 0 15px rgba(250, 204, 21, 0.9),
+            0 0 25px rgba(250, 204, 21, 0.3);
+    }
+
+}
+
+@keyframes notificationIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(35px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+
+}
+
+@keyframes modalIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+@keyframes ambientFloat {
+
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(35px, -25px) scale(1.08);
+    }
+
+    66% {
+        transform: translate(-25px, 25px) scale(0.95);
+    }
+
+}
+
+@keyframes borderGlow {
+
+    0%, 100% {
+        border-color: rgba(34, 211, 238, 0.1);
+    }
+
+    50% {
+        border-color: rgba(34, 211, 238, 0.45);
+    }
+
+}
+
+@keyframes progressShine {
+
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: -100% 0;
+    }
+
+}
+
+
+/* ================= PAGE ENTRANCE ================= */
+
+.app-wrapper {
+    animation: fadeIn 0.8s ease both;
+}
+
+.main-header {
+    animation: fadeDown 0.7s ease both;
+}
+
+.hero-content {
+    animation: fadeUp 0.9s 0.1s ease both;
+}
+
+.hero-decoration {
+    animation: fadeIn 1.2s 0.3s ease both;
+}
+
+.stats-section .stat-card {
+    animation: fadeUp 0.7s ease both;
+}
+
+.stats-section .stat-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stats-section .stat-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stats-section .stat-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stats-section .stat-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.control-panel {
+    animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.visualizer-panel {
+    animation: fadeUp 0.8s 0.3s ease both;
+}
+
+.analytics-section {
+    animation: fadeUp 0.8s 0.4s ease both;
+}
+
+.algorithm-info-section {
+    animation: fadeUp 0.8s 0.5s ease both;
+}
+
+
+/* ================= AMBIENT BACKGROUND ================= */
+
+.ambient-one {
+    animation: ambientFloat 18s ease-in-out infinite;
+}
+
+.ambient-two {
+    animation: ambientFloat 22s ease-in-out infinite reverse;
+}
+
+.ambient-three {
+    animation: ambientFloat 25s ease-in-out infinite;
+}
+
+.decoration-ring.ring-one {
+    animation: rotateSlow 25s linear infinite;
+}
+
+.decoration-ring.ring-two {
+    animation: rotateReverse 18s linear infinite;
+}
+
+.decoration-center {
+    animation: float 5s ease-in-out infinite;
+}
+
+
+/* ================= BRAND EFFECTS ================= */
+
+.brand-icon {
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+.brand-icon-glow {
+    animation: borderGlow 3s ease-in-out infinite;
+}
+
+.brand-icon i {
+    transition: transform 0.4s ease;
+}
+
+.brand-area:hover .brand-icon i {
+    transform: rotate(-20deg) scale(1.1);
+}
+
+
+/* ================= BUTTON ANIMATIONS ================= */
+
+.tool-btn {
+    overflow: hidden;
+}
+
+.tool-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(34, 211, 238, 0.12),
+        transparent
+    );
+
+    transition: left 0.55s ease;
+
+}
+
+.tool-btn:hover::before {
+    left: 120%;
+}
+
+.tool-btn.active {
+    animation: scaleIn 0.25s ease both;
+}
+
+.tool-btn.active .tool-icon {
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.primary-action-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-action-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100%;
+    left: -50%;
+
+    width: 45%;
+    height: 300%;
+
+    transform: rotate(25deg);
+
+    background: rgba(255, 255, 255, 0.25);
+
+    transition: left 0.65s ease;
+
+}
+
+.primary-action-btn:hover::before {
+    left: 130%;
+}
+
+.header-icon-btn,
+.mini-tool-btn,
+.pause-action-btn,
+.step-action-btn,
+.secondary-action-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-icon-btn:active,
+.mini-tool-btn:active,
+.pause-action-btn:active,
+.step-action-btn:active,
+.secondary-action-btn:active {
+    transform: scale(0.94);
+}
+
+
+/* ================= GRID VISUALIZATION ================= */
+
+.cell.visited {
+
+    animation: visitedReveal 0.28s ease both;
+
+}
+
+.cell.path {
+
+    animation: pathReveal 0.3s ease both;
+
+}
+
+.cell.start {
+
+    animation: startPulse 2.3s ease-in-out infinite;
+
+}
+
+.cell.end {
+
+    animation: endPulse 2.3s ease-in-out infinite;
+
+}
+
+.cell.current {
+
+    animation: glowPulse 0.7s ease-in-out infinite;
+
+}
+
+.cell.obstacle {
+
+    animation: scaleIn 0.12s ease both;
+
+}
+
+
+/* ================= GRID HOVER ================= */
+
+.cell:hover {
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background-color 0.15s ease;
+
+}
+
+.grid {
+
+    animation: scaleIn 0.6s ease both;
+
+}
+
+
+/* ================= LEGEND EFFECTS ================= */
+
+.legend-box {
+    transition: transform 0.2s ease;
+}
+
+.legend-item:hover .legend-box {
+    transform: scale(1.35);
+}
+
+
+/* ================= STAT CARD EFFECTS ================= */
+
+.stat-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    top: -80px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(34, 211, 238, 0.035);
+
+    transition: 0.5s ease;
+
+}
+
+.stat-card:hover::after {
+
+    transform: scale(1.7);
+
+    background: rgba(34, 211, 238, 0.08);
+
+}
+
+.stat-icon {
+    transition: transform 0.35s ease;
+}
+
+.stat-card:hover .stat-icon {
+    transform: scale(1.12) rotate(-5deg);
+}
+
+
+/* ================= ANALYTICS EFFECTS ================= */
+
+.analytics-card {
+    overflow: hidden;
+    position: relative;
+}
+
+.analytics-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cyan),
+        transparent
+    );
+
+    transition: left 0.6s ease;
+
+}
+
+.analytics-card:hover::before {
+    left: 100%;
+}
+
+.analytics-icon {
+    transition: transform 0.35s ease;
+}
+
+.analytics-card:hover .analytics-icon {
+    transform: rotate(8deg) scale(1.12);
+}
+
+
+/* ================= PROGRESS ANIMATION ================= */
+
+.progress-fill {
+
+    background-size: 200% 100%;
+
+    animation: progressShine 3s linear infinite;
+
+}
+
+
+/* ================= STATUS INDICATORS ================= */
+
+.status-indicator,
+.live-dot {
+
+    animation: pulse 1.8s ease-in-out infinite;
+
+}
+
+.algorithm-dot {
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+
+/* ================= LOADING ANIMATION ================= */
+
+.loading-spinner {
+    animation: spin 0.8s linear infinite;
+}
+
+.grid-loading:not(.hidden) {
+    animation: fadeIn 0.3s ease both;
+}
+
+
+/* ================= MODAL ANIMATION ================= */
+
+.modal-backdrop.show {
+    animation: fadeIn 0.25s ease both;
+}
+
+.modal-backdrop.show .help-modal {
+    animation: modalIn 0.35s ease both;
+}
+
+.help-step {
+    transition: transform 0.25s ease;
+}
+
+.help-step:hover {
+    transform: translateX(5px);
+}
+
+.help-number {
+    transition: 0.3s ease;
+}
+
+.help-step:hover .help-number {
+    background: rgba(34, 211, 238, 0.2);
+    transform: scale(1.08);
+}
+
+
+/* ================= TOAST ANIMATION ================= */
+
+.toast-container.show .toast {
+    animation: notificationIn 0.35s ease both;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer-brand i {
+    transition: transform 0.4s ease;
+}
+
+.footer-brand:hover i {
+    transform: rotate(45deg);
+}
+
+
+/* ================= FOCUS EFFECTS ================= */
+
+.tool-btn:focus-visible,
+.primary-action-btn:focus-visible,
+.secondary-action-btn:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+}
+
+
+/* ================= PAGE READY ================= */
+
+body:not(.app-ready) .app-wrapper {
+    opacity: 0;
+}
+
+body.app-ready .app-wrapper {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+
+/* ================= REDUCED MOTION ================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cell,
+    .ambient,
+    .brand-icon,
+    .decoration-ring,
+    .decoration-center,
+    .status-indicator,
+    .live-dot {
+        animation: none !important;
+    }
+
+}
